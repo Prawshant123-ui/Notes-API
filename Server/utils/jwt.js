@@ -4,7 +4,7 @@ const generateToken = (user) => {
   return jwt.sign(
     {
       id: user.id,
-      role: user.role,
+      email: user.email,
     },
     process.env.JWT_SECRET_KEY,
 
@@ -14,4 +14,4 @@ const generateToken = (user) => {
   );
 };
 
-module.exports=generateToken
+module.exports = generateToken;
