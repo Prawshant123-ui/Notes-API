@@ -3,6 +3,7 @@ Client/node_modules/
 Client/dist/
 Client/build/
 Client/.env
+Client/.env.example
 
 # Server
 Server/node_modules/
