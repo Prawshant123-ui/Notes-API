@@ -14,15 +14,15 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await prisma.user.create({
-      name,
+     data: {name,
       email,
-      password: hashedPassword,
-      role: role || "USER",
+      password: hashedPassword}
+     
     });
     const token = generateToken(user);
 
     res.status(201).json({
-      user: { id: user.id, email: user.email, role: user.role },
+      user: { id: user.id, email: user.email },
       token,
     });
   } catch (error) {
@@ -50,7 +50,7 @@ const login = async (req, res) => {
 
     res.json({
       token,
-      user: { id: user.id, role: user.role },
+      user: { id: user.id },
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

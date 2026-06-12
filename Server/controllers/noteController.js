@@ -1,3 +1,5 @@
+const prisma=require("../config/prisma")
+
 //Create Notes
 const createNotes = async (req, res) => {
   try {
