@@ -6,11 +6,15 @@ const noteRoute=require("./routes/noteRoutes")
 const app=express()
 
 app.use(express.json())
-app.use(cors(
-    {
-        origin : 'http://localhost:8080'
-    }
-))
+app.use(
+  cors({
+    origin: [
+      "http://localhost:8080",
+      "https://notes-api-chi.vercel.app"
+    ],
+    credentials: true
+  })
+);
 
 
 app.get('/',(req,res)=>{
